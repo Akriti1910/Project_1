@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.main_box {
+    background: url("photoForMiniProject.jpg");
+    /* "vh" is viewport, meaning the entire page ki height and width. */
+    height: 100vh;
+    background-size: cover;
+}
+
+.btn_one i{
+    color: white;
+    font-size: 30px;
+    font-weight: 700px;
+    position : absolute;
+    left: 16px;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.sidebar_menu {
+    position: fixed;
+    /* for animations, we will make the sidebar menu hidden and shift it towards the left. */
+    left: -300px;
+    /* we want our sidebar menu to cover the height of the entire page, so we will set it to 100vh means 100% of the viewport height. */
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(255,255,255,0.1);
+    /* 3 length values(offset-x, offset-y and a blurr radius) and a color below */
+    box-shadow: 0 0 6px rgba(255,255,255,05);
+    /* Apply to all changed properties */
+    transition: all 0.5s linear;
+}
+
+.sidebar_menu .logo {
+    position: absolute;
+    width: 100%;
+    line-height: 60px;
+    box-shadow: 0 0 6px rgba(255,255,255,05);
+}
+
+.sidebar_menu .logo a {
+    color: white;
+    position: absolute;
+    left: 50px;
+    /* we want to remove the underline of "Apna College" */
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.sidebar_menu .btn_two i{
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+    position: absolute;
+    left: 275px;
+    /* we set the opacity to 0 for later animation purposes */
+    /* opacity: 0; */
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.sidebar_menu .menu {
+    /* color: white; */
+    position: absolute;
+    width: 92%;
+    left: 10px;
+    top: 80px;
+}
+
+.sidebar_menu .menu li {
+    color: white;
+    margin-top: 6px;
+    /* added padding from top and bottom */
+    padding: 10px 10px;
+}
+
+.sidebar_menu .menu i,a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar_menu .menu i {
+    padding-right: 8px;
+}
+
+.sidebar_menu .social_media {
+    color: white;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 50px;
+    left: 75px; 
+    border: 2px solid white;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+
+.sidebar_menu .social_media a {
+    padding: 5px;
+}
+
+#check {
+    /* we want to not show the checkbox for now, so we removed the space allocated to it */
+    display: none;
+}
+
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 6px rgba(255,255,255,05);
+    transform: scale(1.1);
+}
+
+.btn_one i:hover {
+    text-shadow: 2px 2px 10px goldenrod;
+}
+
+.btn_two i:hover {
+    text-shadow: 2px 2px 10px goldenrod;
+}
+
+.sidebar_menu .social_media:hover { 
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.sidebar_menu .logo:hover {
+    text-shadow: 2px 2px 10px goldenrod;
+}
+
+/* now it is time to put the functioning for the hamburger button and the cross */
+/* ~ tilde is used to symbolize sibling tags, here it will be the sidebar menu, button one and social media. */
+
+#check:checked ~ .sidebar_menu {
+    /* we set the sidebar menu to be -300px towards left, but whenever we will click the hamburger menu, the position of the sidebar will be 0px from the left  */
+    left:0; 
+    /* when we click and uncheck on the cross button, the sidebar menu will disappear again because even the cross button has "check" as it's label */
+
+    /* to make it simple to understand, we have a checkbox who's ID is "check", then we have 2 labels with icons of hamburger and cross, so whenever we click on each of them, the "checkbox" will be either checked/unchecked. */
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0;
+}
